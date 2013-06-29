@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MyToDo</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    <script src="/js/MyToDo.js"></script>
+    <!-- MyToDo references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <div id="toDoItemTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="item">
+            <div data-win-bind="textContent: name" class="item-title"></div>
+            <p data-win-bind="textContent: description" class="item-description"></p>
+        </div>
+    </div>
+    <div class="fragment toDo">
+        <header role="banner">
+            <h1 class="titlearea">My To Dos
+            </h1>
+        </header>
+        <section role="main">
+            <aside>
+                <h3>Search</h3>
+                <input type="text" id="searchInput" />
+                <hr />
+
+                <form id="addForm">
+                    <label>
+                        Name
+                    </label>
+                    <input type="text" class="name input-block" required />
+                    <label>
+                        Description
+                    </label>
+                    <textarea class="description input-block"></textarea>
+                    <div>
+                        <button type="submit">Add</button>
+                    </div>
+                </form>
+
+                
+            </aside>
+            <div id="toDoList" class="toDoList" data-win-control="WinJS.UI.ListView" data-win-options="{ itemTemplate: select('#toDoItemTemplate') }"></div>
+        </section>
+    </div>
+    <div id="appBar" data-win-control="WinJS.UI.AppBar">
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'deleteCommand', label:'Delete', icon:'remove', section:'selection', hidden:'true', extraClass:'appBarSelection'}">
+        </button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'editCommand', label:'Edit', icon:'edit', section:'selection', hidden:'true', extraClass:'appBarSelection appBarSingleSelection'}">
+        </button>
+    </div>
+    <div id="editFlyout" data-win-control="WinJS.UI.Flyout">
+        <form id="editForm">
+            <h2>Edit To Do</h2>
+            <input type="hidden" class="id" data-win-bind="value:id" />
+            <input type="hidden" class="lvIndex" data-win-bind="value:lvIndex" />
+            <label>
+                Name
+            </label>
+            <input type="text" class="name input-block" data-win-bind="value:name" required />
+            <label>
+                Description
+            </label>
+            <textarea class="description input-block" data-win-bind="value:description"></textarea>
+            <div>
+                <button type="submit">Save</button>
+                <button class="cancel">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

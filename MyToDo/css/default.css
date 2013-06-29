@@ -1,0 +1,79 @@
+﻿.fragment {
+    /* Define a grid with rows for a banner and a body */
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 128px 1fr;
+    display: -ms-grid;
+    height: 100%;
+    width: 100%;
+}
+
+    .fragment header[role=banner] {
+        -ms-grid-columns: 120px 1fr;
+        -ms-grid-rows: 1fr;
+        display: -ms-grid;
+    }
+
+        .fragment header[role=banner] h1 {
+            -ms-grid-column: 2;
+            margin-top: 37px;
+        }
+
+    .fragment section[role=main] {
+        -ms-grid-row: 2;
+        height: 100%;
+        width: 100%;
+        margin-left: 120px;
+        margin-right: 120px;
+
+        -ms-grid-columns: 300px 1fr;
+        -ms-grid-rows: 1fr;
+        display: -ms-grid;
+    }
+
+
+.toDo aside {
+    -ms-grid-column: 1;
+    padding-right: 30px;
+}
+
+.toDo aside hr {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.toDo .toDoList {
+    -ms-grid-column: 2;
+    height: 100%;
+    width: 100%;
+}
+
+    .toDo .toDoList .item {
+        height: 200px;
+        width: 200px;
+        padding: 15px;
+        background-color: rgba(255,255,255,0.6);
+    }
+
+        .toDo .toDoList .item .item-title {
+            font-weight: 600;
+            font-size: 15pt;
+        }
+
+        .toDo .toDoList .item .item-description {
+            overflow: hidden;
+            margin-left: 15px;
+        }
+
+.toDo form label, #updateFlyout form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-block {
+    display: block;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+
